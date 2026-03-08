@@ -29,8 +29,14 @@ def main():
         if opcion == "1":
             titulo = input("Titulo: ")
             autor = input("Autor: ")
+            while not autor.replace(" ", "").isalpha():
+                print("❌ El autor solo debe contener letras.")
+                autor = input("Autor: ")
             categoria = input("Categoria: ")
             isbn = input("ISBN: ")
+            while not isbn.isdigit():
+                print("❌ El ISBN debe contener solo números.")
+                isbn = input("ISBN: ")
 
             biblioteca.agregar_libro(titulo, autor, categoria, isbn)
 
@@ -40,6 +46,9 @@ def main():
 
         elif opcion == "3":
             nombre = input("Nombre: ")
+            while not nombre.replace(" ", "").isalpha():
+                print("❌ El nombre solo debe contener letras.")
+                nombre = input("Nombre: ")
             user_id = input("ID usuario: ")
 
             biblioteca.registrar_usuario(nombre, user_id)

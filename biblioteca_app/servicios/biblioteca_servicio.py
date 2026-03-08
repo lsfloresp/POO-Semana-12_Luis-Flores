@@ -100,19 +100,40 @@ class BibliotecaServicio:
     # ---------------- BUSQUEDAS ----------------
 
     def buscar_por_titulo(self, titulo):
+
+        encontrado = False
+
         for libro in self.libros.values():
-            if libro.obtener_titulo().lower() == titulo.lower():
+            if (libro.obtener_titulo().lower() == titulo.lower()):
                 print(libro)
+                encontrado = True
+
+        if not encontrado:
+            print("❌ No se encontró ningún libro con ese título.")
 
     def buscar_por_autor(self, autor):
+
+        encontrado = False
+
         for libro in self.libros.values():
             if libro.obtener_autor().lower() == autor.lower():
                 print(libro)
+                encontrado = True
+
+        if not encontrado:
+            print("❌ No se encontraron libros de ese autor.")
 
     def buscar_por_categoria(self, categoria):
+
+        encontrado = False
+
         for libro in self.libros.values():
             if libro.categoria.lower() == categoria.lower():
                 print(libro)
+                encontrado = True
+
+        if not encontrado:
+            print("❌ No se encontraron libros en esa categoría.")
 
     # ---------------- LISTADOS ----------------
 
